@@ -1,0 +1,133 @@
+
+
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap");
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+  font-family: "Quicksand", sans-serif;
+}
+
+body {
+  background-color: #e7eaef;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #202020;
+}
+.container::before {
+  content: "";
+  position: fixed;
+  width: 700px;
+  height: 1500px;
+  border-radius: 150px 350px;
+  background-color: #00c7d9;
+  transform: rotate(-45deg) translate(40%, -55%);
+}
+
+.celular {
+  width: 400px;
+  height: 100vh;
+  border-radius: 50px;
+  border: 7px solid white;
+  transform: translateY(-30%);
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.navegacao {
+  width: 100%;
+  background-color: #202020;
+  border-radius: 50px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+.navegacao-lista {
+  list-style: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+.navegacao-item {
+  perspective: 100px;
+}
+.navegacao-link {
+  font-size: 12px;
+  text-decoration: none;
+  color: #c3cad6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+  padding: 20px 30px;
+  overflow: hidden;
+  position: relative;
+  outline: none;
+}
+.navegacao-link::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  border-radius: 15px;
+  background-color: #fefefa;
+  position: absolute;
+  transform: translateY(60px) scale(0.4);
+  transition: all 0.35s cubic-bezier(0, 0.51, 0, 0.99);
+  opacity: 0;
+}
+.navegacao-icone {
+  color: fefefa;
+  transition: all 0.35s ease;
+  will-change: opacity, transform, background-color;
+}
+.navegacao-texto {
+  position: absolute;
+  transform: translateY(60px) skewY(-20deg);
+  transform-origin: left bottom;
+  color: #00c7d9;
+  font-weight: 700;
+  opacity: 0;
+  transition: all 0.35s ease;
+}
+.navegacao-link.active .navegacao-icone {
+  transform: translateY(-60px) rotateX(90deg) scale(0.4) skewY(-30deg);
+  opacity: 0;
+}
+.navegacao-link.active .navegacao-texto {
+  opacity: 1;
+  transform: translateY(-3px) skewY(0deg);
+}
+.navegacao-link.active::before {
+  transform: translateY(12px) scale(1);
+  transition: all 0.35s cubic-bezier(0, 0.51, 0, 0.99) 0.2s;
+  opacity: 1;
+}
+
+.logo {
+  position: absolute;
+  bottom: 100px;
+  left: 45px;
+  width: 300px;
+  border-radius: 50%;
+}
